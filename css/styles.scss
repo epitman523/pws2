@@ -1,0 +1,142 @@
+//---------------------
+//IMPORTS
+//---------------------
+@import 'variables.scss';
+@import 'mixins.scss';
+
+//---------------------
+//GLOBAL STYLES
+//---------------------
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font: $body-font;
+    background-color: $primary;
+    color: $white;
+
+    h1, h2, h3, h4, h5, h6 {
+        font: $heading-font; 
+    }
+    h1 {
+        font-size: 2rem;
+        @include mq(md) {
+            font-size: 2.5rem;
+        }
+        @include mq(lg) {
+            font-size: 3rem;
+        }
+    }
+    h2 {
+        font-size: 2rem;
+        @include mq(md) {
+        
+            font-size: 2rem;
+        }
+        @include mq(lg) {
+            font-size: 2.5rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.625rem;
+        @include mq(md) {
+            font-size: 2rem;
+        }
+        @include mq(lg) {
+            font-size: 2.5rem;
+        }
+    }
+
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    a {
+        color: $white;
+        text-decoration: none;
+        transition: 0.5s;
+
+        &:hover, a:focus {
+            color: $accent;
+            text-decoration: default;
+        }
+    }
+    .container {
+        margin: $m-center;
+        max-width: 90%;
+        padding: 10rem 2rem;
+    }
+} 
+main {
+    @include linear-gradient($primary, $secondary);
+}
+footer {
+    @include flexbox;
+    @include flex-direction(column-reverse);
+    @include flex-wrap(wrap);
+    @include align-items(center);
+    @include justify-content(center);
+    background-color: $secondary;
+    font-size: 1.4rem;
+
+    @include mq(md) { 
+        @include flex-direction(row);
+        @include flex-wrap;
+    }
+
+    p {
+        color: $tertiary;
+        padding-left: 0;
+        @include mq(md) {
+            padding-left: 2rem;
+            width: 25%;
+        }
+        
+    }
+    .footer-nav {
+        @include align-items(center);
+        @include mq(md) {
+            width: 75%;
+        }
+        ul {
+            @include flexbox;
+            @include flex-wrap(wrap);
+            @include justify-content(center);
+            @include align-items(center);
+            @include mq(md) {
+                @include flex-wrap;
+                @include justify-content(flex-end);
+            }
+            > li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                
+                @include mq(md) {
+                    width: auto;
+                    padding-right: 1rem;
+                }
+            }
+            > li:last-child {
+                @include justify-content(center);
+                
+                .social {
+                    li {
+                        width: initial;
+                    }
+                }
+                .social a {
+                    display: inline-block;
+                    padding: 0 2rem;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
