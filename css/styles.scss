@@ -3,7 +3,10 @@
 //---------------------
 @import 'variables.scss';
 @import 'mixins.scss';
-
+@import "../vendor/fontawesome/scss/fontawesome.scss";
+@import "../vendor/fontawesome/scss/light.scss";
+@import "../vendor/fontawesome/scss/regular.scss";
+@import "../vendor/fontawesome/scss/brands.scss";
 //---------------------
 //GLOBAL STYLES
 //---------------------
@@ -67,12 +70,35 @@ body {
             text-decoration: default;
         }
     }
+    ul {
+        list-style-type: none;
+    }
     .container {
         margin: $m-center;
         max-width: 90%;
         padding: 10rem 2rem;
     }
 } 
+header {
+    .container {
+        @include flexbox;
+        @include flex-wrap(nowrap);
+        @include flex-direction(row);
+        @include align-items(center);
+
+        > div, nav {
+            width: 50%;
+        }
+        nav {
+            ul {
+                @include flexbox;
+                @include flex-direction(row);
+                @include flex-wrap(nowrap);
+                
+            }
+        }
+    }
+}
 main {
     @include linear-gradient($primary, $secondary);
 }
