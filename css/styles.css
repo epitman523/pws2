@@ -8260,6 +8260,7 @@ body {
 
 body h1, body h2, body h3, body h4, body h5, body h6 {
   font: 300 1.6rem/1 "Nunito", sans-serif;
+  line-height: 1.6;
 }
 
 body h1 {
@@ -8334,6 +8335,8 @@ body ul {
 body .container {
   margin: 0 auto;
   max-width: 90%;
+  position: relative;
+  height: 100%;
 }
 
 @media (min-width: 769px) {
@@ -8380,6 +8383,7 @@ header .container .logo, header .container nav {
 @media (min-width: 451px) {
   header .container .logo {
     width: 20%;
+    text-align: left;
   }
 }
 
@@ -8536,5 +8540,46 @@ footer .footer-nav ul > li:last-child .social a {
   display: inline-block;
   padding: 0 2rem;
   font-size: 2rem;
+}
+
+#home #hero {
+  background-color: #2D0042;
+  height: 90vh;
+}
+
+@media (min-width: 769px) {
+  #home #hero {
+    height: 100vh;
+  }
+}
+
+#home #hero h1 {
+  position: absolute;
+  top: 10%;
+  font-size: 3rem;
+}
+
+@media (min-width: 451px) {
+  #home #hero h1 {
+    font-size: 6rem;
+    top: 20%;
+  }
+}
+
+#home #hero h1 span {
+  display: block;
+}
+
+#home #hero h1 span:last-child {
+  color: #51EBC8;
+}
+
+#home #hero a {
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  text-align: center;
+  font-size: 4rem;
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */

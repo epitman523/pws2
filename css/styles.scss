@@ -24,7 +24,8 @@ body {
     color: $white;
 
     h1, h2, h3, h4, h5, h6 {
-        font: $heading-font; 
+        font: $heading-font;
+        line-height: 1.6; 
     }
     h1 {
         font-size: 2rem;
@@ -76,6 +77,9 @@ body {
     .container {
         margin: $m-center;
         max-width: 90%;
+        position: relative;
+        height: 100%;
+
         @include mq(md) {
             padding: 0 2rem;
         }
@@ -90,7 +94,7 @@ header {
         @include flexbox;
         @include flex-direction(row);
         @include flex-wrap(wrap);
-        
+
         @include mq(sm) {
             @include flex-wrap(nowrap);
             @include align-items(center);
@@ -103,6 +107,7 @@ header {
         .logo {
             @include mq(sm) {
                 width: 20%;
+                text-align: left;
             }
         }
         nav {
@@ -196,6 +201,46 @@ footer {
                     font-size: 2rem;
                 }
             }
+        }
+    }
+}
+//---------------------
+//       HOME 
+//---------------------
+#home {
+    #hero {
+        background-color: $primary;
+        height: 90vh;
+        
+        @include mq(md) {
+            height: 100vh;
+        }
+        
+        h1 {
+            position: absolute;
+            top: 10%;
+            font-size: 3rem;
+    
+            @include mq(sm) {
+                font-size: 6rem;
+                top: 20%;
+            }
+    
+            span {
+                display: block;
+                
+                &:last-child {
+                    color: $accent;
+                }
+            }
+        }
+        a {
+            display: block;
+            position: absolute;
+            bottom: 10%;
+            text-align: center;
+            font-size: 4rem;
+            width: 100%;
         }
     }
 }
