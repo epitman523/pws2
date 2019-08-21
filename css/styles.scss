@@ -23,44 +23,45 @@ body {
     background-color: $primary;
     color: $white;
 
-    h1, h2, h3, h4, h5, h6 {
+    main {
+        @include linear-gradient($primary, $secondary);
+    }
+    h1, h2, h3, h4 {
         font: $heading-font;
-        line-height: 1.6; 
     }
     h1 {
-        font-size: 2rem;
+        font-size: 3.2rem;
         @include mq(md) {
-            font-size: 2.5rem;
+            font-size: 4rem;
         }
         @include mq(lg) {
-            font-size: 3rem;
+            font-size: 4.8rem;
         }
     }
     h2 {
-        font-size: 2rem;
+        font-size: 2.6rem;
         @include mq(md) {
-        
-            font-size: 2rem;
+            font-size: 3.2rem;
         }
         @include mq(lg) {
-            font-size: 2.5rem;
+            font-size: 3.6rem
         }
     }
-
     h3 {
-        font-size: 1.625rem;
+        font-size: 2.2rem;
         @include mq(md) {
-            font-size: 2rem;
+            font-size: 2.4rem;
         }
         @include mq(lg) {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
         }
     }
-
     h4 {
-        font-size: 1.125rem;
+        font-size: 1.8rem;
     }
-
+    ul {
+        list-style-type: none;
+    }
     a {
         color: $white;
         text-decoration: none;
@@ -71,176 +72,173 @@ body {
             text-decoration: default;
         }
     }
-    ul {
-        list-style-type: none;
-    }
     .container {
+        width: 100%;
+        padding: 0 2rem;
+        max-width: 112rem;
         margin: $m-center;
-        max-width: 90%;
-        position: relative;
-        height: 100%;
-
-        @include mq(md) {
-            padding: 0 2rem;
-        }
     }
     .access-hide {
         display: none;
     }
-} 
-header {
-    padding: 2rem 0;
-    .container {
-        @include flexbox;
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
 
-        @include mq(sm) {
-            @include flex-wrap(nowrap);
+    header {
+        background-color: $primary;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid $secondary;
+
+        .container {
+            @include flexbox;
+            @include flex-direction(column);
             @include align-items(center);
-        }
-        
-        .logo, nav {
-            width: 100%;
-            text-align: center;
-        }
-        .logo {
+
             @include mq(sm) {
-                width: 20%;
+                @include flex-direction(row);
+            }
+
+            .logo {
+                margin-bottom: 2rem;
+
+                @include mq(sm) {
+                    margin-bottom: 0;
+                }
+            }
+
+            nav {
+                
+                @include mq(sm) {
+                    width: 100%;
+                }
+                ul {
+                    @include flexbox;
+                    @include flex-direction(row);
+
+                    @include mq(sm) {
+                        @include justify-content(flex-end);
+                    }
+
+                    li {
+                        margin-left: 2rem;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background-color: $primary;
+        padding: 1.5rem 0;
+        text-align: center;
+
+        @include mq(md) {
+            text-align: left;
+        }
+        .container {
+            @include flexbox;
+            @include flex-direction(column-reverse);
+            @include align-items(center);
+
+            @include mq(md) {
+                @include flex-direction(row);
+            }
+            > p {
+                width: 100%;
+            }
+            nav {
+                width: 100%;
+                > ul {
+                    @include flexbox;
+                    @include flex-wrap(wrap);
+
+                    @include mq(md) {
+                        @include flex-wrap(nowrap);
+                        @include align-items(center);
+                        @include justify-content(flex-end);
+
+                    }
+                    > li {
+                        width: 33%;
+                        @include mq(md) {
+                            width: auto;
+                            margin-right: 2rem;
+                        }
+
+                        &:last-child {
+                            width: 100%;
+                            @include mq(md) {
+                                width: auto;
+                            }
+                        }
+                    }
+                }
+                .social {
+                    @include flexbox;
+                    @include justify-content(center);
+                    padding: 2rem 0;
+
+                    @include mq(md) {
+                        @include justify-content(flex-end);
+                        padding: 0;
+                    }
+
+                    li {
+                        margin-left: 2.5rem;
+                        font-size: 2.5rem;
+
+                        @include mq(md) {
+                            font-size: 1.8rem;
+                            margin-left: 2rem;
+                        }
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        
+                    }
+                } 
+            }
+        }
+    }
+}
+//---------------------
+//       HOME
+//---------------------
+#home {
+    main {
+        text-align: center;
+
+        section {
+            padding: 6rem 0 8rem;
+            .container {
                 text-align: left;
             }
         }
-        nav {
-            ul {
-                @include flexbox;
-                @include flex-direction(row);
-                @include flex-wrap(nowrap);
-                @include justify-content(center);
-
-                @include mq(sm) {
-                    @include justify-content(flex-end);
-                }
-
-                li {
-                    margin-left: 2rem;
-                    span {
-                        display: none;
-                        @include mq(md) {
-                            display: block;
-                        }
-                    }
-                    a {
-                        padding-right: 1rem;
-                    }
-                }
-            }
+        h2 {
+            display: inline-block;
+            padding: 1rem;
+            border-top: 1px solid $white;
+            border-bottom: 1px solid $white;
+            margin-bottom: 4rem;
         }
-    }
-}
-main {
-    @include linear-gradient($primary, $secondary);
-}
-footer {
-    @include flexbox;
-    @include flex-direction(column-reverse);
-    @include flex-wrap(wrap);
-    @include align-items(center);
-    @include justify-content(center);
-    background-color: $secondary;
-    font-size: 1.4rem;
 
-    @include mq(md) { 
-        @include flex-direction(row);
-        @include flex-wrap;
-    }
-
-    p {
-        color: $tertiary;
-        padding-left: 0;
-        @include mq(md) {
-            padding-left: 2rem;
-            width: 25%;
-        }
-        
-    }
-    .footer-nav {
-        @include align-items(center);
-        @include mq(md) {
-            width: 75%;
-        }
-        ul {
-            @include flexbox;
-            @include flex-wrap(wrap);
-            @include justify-content(center);
-            @include align-items(center);
-            @include mq(md) {
-                @include flex-wrap;
-                @include justify-content(flex-end);
-            }
-            > li {
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-                
-                @include mq(md) {
-                    width: auto;
-                    padding-right: 1rem;
-                }
-            }
-            > li:last-child {
-                @include justify-content(center);
-                
-                .social {
-                    li {
-                        width: initial;
-                    }
-                }
-                .social a {
-                    display: inline-block;
-                    padding: 0 2rem;
-                    font-size: 2rem;
-                }
-            }
-        }
-    }
-}
-//---------------------
-//       HOME 
-//---------------------
-#home {
-    #hero {
-        background-color: $primary;
-        height: 90vh;
-        
-        @include mq(md) {
+        #hero {
             height: 100vh;
-        }
-        
-        h1 {
-            position: absolute;
-            top: 10%;
-            font-size: 3rem;
-    
-            @include mq(sm) {
-                font-size: 6rem;
-                top: 20%;
-            }
-    
-            span {
-                display: block;
-                
-                &:last-child {
-                    color: $accent;
+
+            h1 {
+                font-size: 2rem;
+
+                span {
+                    font-size: 3.6rem;
+                    display: block;
                 }
             }
         }
-        a {
-            display: block;
-            position: absolute;
-            bottom: 10%;
-            text-align: center;
-            font-size: 4rem;
-            width: 100%;
-        }
+        
     }
+    
+    
 }
