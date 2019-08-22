@@ -77,6 +77,8 @@ body {
         padding: 0 2rem;
         max-width: 112rem;
         margin: $m-center;
+        position: relative;
+        height: 100%;
     }
     .access-hide {
         display: none;
@@ -226,19 +228,137 @@ body {
         }
 
         #hero {
+            background-color: $primary;
             height: 100vh;
+            padding: 0;
 
+            .container {
+                @include flexbox;
+                @include flex-direction(column);
+                @include align-items(center);
+                @include justify-content(center);
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 10rem;
+                
+            }
+        }  
+        #work {
+            .container {
+                @include flexbox;
+                @include flex-wrap(wrap);
 
-                span {
-                    font-size: 3.6rem;
+                @include mq(sm) {
+                    @include justify-content(space-between);
+                }
+                .work {
                     display: block;
+                    width: 100%;
+                    background-color: $white;
+                    margin-bottom: 2rem;
+
+                    @include mq(sm) {
+                        width: calc(50% - 1rem);
+                    }
+                    @include mq(md) {
+                        &:nth-child(2), 
+                        &:nth-child(3) {
+                            width: calc(40% - 1rem);
+                        }
+                        &:nth-child(1), 
+                        &:nth-child(4) {
+                            width: calc(60% - 1rem);
+                        }
+                    }
+
+                    .img-container {
+                        background-color: $secondary;
+                        height: 20rem;
+
+                        @include mq(md) {
+                            height: 25rem;
+                        }
+                        @include mq(xl) {
+                            height: 30rem;
+                        }
+                    }
+                    .title {
+                        color: $primary;
+                        padding: 1rem 2rem;
+                    }
                 }
             }
         }
-        
-    }
-    
-    
+        #about {
+            .container {
+                @include flexbox;
+                @include flex-wrap(wrap);
+                
+                @include mq(md) {
+                    @include flex-direction(row-reverse);
+                    @include flex-wrap(nowrap);
+                    @include justify-content(space-between);
+                }
+
+                .bio, .experience {
+                    width: 100%;
+                }
+                .bio {
+                    @include mq(md) {
+                        width: calc(60% - 1rem);
+                    }
+                    p {
+                        margin-bottom: 2rem;
+                    }
+                }
+                .experience {
+                    background-color: $primary;
+                    padding: 2rem;
+
+                    @include mq(md) {
+                        width: calc(40% - 1rem);
+                    }
+
+                    h3, h4 {
+                        margin-bottom: 1rem;
+                    }
+                    h4 {
+                        display: inline-block;
+                        color: $accent;
+                        border-bottom: 1px solid $accent;
+                        padding-bottom: 0.5rem;
+                    }
+                    ul {
+                        li {
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                    .dev {
+                        padding-bottom: 2rem;
+                        border-bottom: 1px solid $secondary;
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+        }
+        #connect {
+            ul {
+                @include flexbox;
+                @include justify-content(center);
+                @include align-items(center);
+
+                li {
+                    width: 10rem;
+                    a {
+                        font-size: 3rem;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }  
 }
