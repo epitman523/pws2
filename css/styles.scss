@@ -386,7 +386,7 @@ body {
                 margin: 0 2rem;
             }
         }
-        padding: 10rem 12rem;
+        padding: 10rem 0 12rem;
         .container {
             @include flexbox;
             @include flex-wrap(wrap);
