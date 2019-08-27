@@ -72,6 +72,9 @@ body {
             text-decoration: default;
         }
     }
+    img {
+        width: 100%;
+    }
     .container {
         width: 100%;
         padding: 0 2rem;
@@ -83,7 +86,21 @@ body {
     .access-hide {
         display: none;
     }
+    .btn {
+        display: block;
+        padding: 1rem 2rem;
+        border: 2px solid;
+        background-color: transparent;
+    }
+    .btn-light {
+        color: $white;
+        border-color: $white;
 
+        &:hover, &:focus {
+            background-color: $white;
+            color: $primary;
+        }
+    }
     header {
         background-color: $primary;
         padding: 1.5rem 0;
@@ -288,6 +305,10 @@ body {
                         padding: 1rem 2rem;
                     }
                 }
+                .btn {
+                    margin: $m-center;
+                    margin-top: 3rem;
+                }
             }
         }
         #about {
@@ -367,6 +388,10 @@ body {
 //---------------------
 #portfolio {
     main {
+        padding: 6rem 0 8rem;
+        @include mq(md) {
+            padding: 10rem 0 14rem;
+        }
         h1 {
             text-align: center;
             margin-bottom: 5rem;
@@ -386,7 +411,6 @@ body {
                 margin: 0 2rem;
             }
         }
-        padding: 10rem 0 12rem;
         .container {
             @include flexbox;
             @include flex-wrap(wrap);
@@ -432,5 +456,73 @@ body {
             }
         }
     }
+}
+#portfolio-single {
+    main{
+        padding: 6rem 0 8rem;
+
+        @include mq(md) {
+            padding: 10rem 0 14rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .container {
+            @include flexbox;
+            @include justify-content(space-between);
+            @include flex-wrap(wrap);
+    
+            .project-info, 
+            .img-container,
+            .column,
+            .tech {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            .project-info {
+                @include mq(md) {
+                    width: calc(60% - 1rem);
+                    margin-bottom: 0;
+                }
+                p {
+                    margin-bottom: 2rem;
+                }
+            }
+            .column {
+                @include flexbox;
+                @include flex-direction(column-reverse);
+
+                @include mq(md) {
+                    @include flex-direction(column);
+                    width: calc(40% - 1rem);
+                }
+
+                .tech {
+                    background-color: $primary;
+                    padding: 2rem;
+
+                    h2 {
+                        margin-bottom: 2rem;
+                        padding-bottom: 1rem;
+                        border-bottom: 1px solid $secondary;
+                    }
+                }
+            }
+            .img-container {
+                background-color: $secondary;
+                height: 20rem;
+
+                @include mq(md) {
+                    height: 25rem;
+                }
+                @include mq(xl) {
+                    height: 30rem;
+                }
+            }
+        }
+    }
+    
     
 }
